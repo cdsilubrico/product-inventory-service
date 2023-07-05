@@ -24,7 +24,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO getById(Long productId) {
         log.info("GET BY ID" + productId);
-        return new ProductDTO(productRepository.findById(productId).orElseThrow(() -> new NoRecordFound(NO_RECORD_FOUND)));
+        return new ProductDTO(productRepository.findById(productId)
+                .orElseThrow(() -> new NoRecordFound(NO_RECORD_FOUND)));
     }
 
     @Override
@@ -33,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
         final Product product = new Product(productDTO);
 
         productRepository.findByName(productDTO.getName())
-                .ifPresentOrElse(prdct -> {
+                .ifPresentOrElse(retrievedProduct -> {
                     throw new DuplicateEntry(DUPLICATE_PRODUCT);
                 }, () -> productRepository.save(product));
 
