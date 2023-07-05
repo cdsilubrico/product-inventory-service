@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO getById(Long productId) {
-        log.info("GET BY ID" + productId);
+        log.info("GET BY ID " + productId);
 
         return new ProductDTO(productRepository.findById(productId)
                 .orElseThrow(() -> new NoRecordFound(NO_RECORD_FOUND)));
@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO saveProduct(ProductDTO productDTO) {
 
-        log.info("SAVE PRODUCT" + productDTO.toString());
+        log.info("SAVE PRODUCT " + productDTO.toString());
 
         final Product product = new Product(productDTO);
 
@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProductById(Long productId) {
 
-        log.info("DELETE BY ID" + productId);
+        log.info("DELETE BY ID " + productId);
 
         productRepository.findById(productId)
                 .ifPresentOrElse(productRepository::delete,
@@ -62,7 +62,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO updateProduct(ProductDTO productDTO) {
 
-        log.info("UPDATE PRODUCT" + productDTO.toString());
+        log.info("UPDATE PRODUCT " + productDTO.toString());
 
         Product product = productRepository.findById(productDTO.getProductId())
                 .orElseThrow(() -> new NoRecordFound(NO_RECORD_FOUND));
