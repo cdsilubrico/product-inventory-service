@@ -15,22 +15,22 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(value = "/products/{id}")
+    @GetMapping(value = "/product/{id}")
     public ResponseEntity<ProductDTO> getProductById(@PathVariable final Long id) {
         return ResponseEntity.ok(this.productService.getById(id));
     }
 
-    @DeleteMapping(value = "/products/{id}")
+    @DeleteMapping(value = "/product/{id}")
     public void deleteProductById(@PathVariable final Long id) {
         this.productService.deleteProductById(id);
     }
 
-    @PatchMapping(value = "/products")
+    @PatchMapping(value = "/product")
     public ResponseEntity<ProductDTO> updateProduct(@RequestBody final ProductDTO productDTO) {
         return ResponseEntity.ok(this.productService.updateProduct(productDTO));
     }
 
-    @PostMapping(value = "/products")
+    @PostMapping(value = "/product")
     public ResponseEntity<ProductDTO> saveProduct(@RequestBody final ProductDTO product) {
         return ResponseEntity.ok(this.productService.saveProduct(product));
     }
