@@ -24,8 +24,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO getById(Long productId) {
         log.info("GET BY ID" + productId);
-        productRepository.findById(productId);
-        return new ProductDTO(productRepository.findById(productId).orElseThrow());
+        return new ProductDTO(productRepository.findById(productId).orElseThrow(() -> new NoRecordFound(NO_RECORD_FOUND)));
     }
 
     @Override
