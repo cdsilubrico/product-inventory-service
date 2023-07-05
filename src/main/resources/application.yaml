@@ -1,0 +1,19 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /product-inventory-service
+
+spring:
+  application:
+    name: Product-Inventory-Service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/product_inventory_service
+    username: postgres
+    password: root
+  hikari:
+    connectionTimeout: 20000
+    maximum-pool-size: 5
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
