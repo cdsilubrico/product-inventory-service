@@ -8,11 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import static com.product.service.constant.Constant.UNKNOWN_ERROR;
+
 @ControllerAdvice
 @Slf4j
 public class Generic {
     @ExceptionHandler(java.lang.Exception.class)
     public ResponseEntity<Error> handleGenericException() {
-        return ExceptionUtil.errorResponse("test", HttpStatus.INTERNAL_SERVER_ERROR);
+        return ExceptionUtil.errorResponse(UNKNOWN_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
