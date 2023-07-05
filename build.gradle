@@ -31,6 +31,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	testImplementation group: 'junit', name: 'junit', version: junitVersion
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: mockitoVersion
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
 
 	compileOnly 'org.projectlombok:lombok'
